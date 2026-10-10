@@ -1,4 +1,4 @@
-FROM python:3.12
+FROM python:3.12-bookworm
 
 RUN apt-get update && apt-get install -y iputils-ping vim
 RUN apt-get install -y zip
@@ -36,7 +36,7 @@ RUN pip install openpyxl==3.1.5
 RUN pip install pandas==2.2.3
 RUN pip install poetry
 RUN pip install python-pptx==1.0.0
-RUN pip install litellm==1.23.16
+RUN pip install litellm==1.80.11
 #############################################################
 
 ################## NPC SETUP ################################

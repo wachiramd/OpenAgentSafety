@@ -1,0 +1,2 @@
+FROM qwen3.5:0.8b-mlx
+PARAMETER num_ctx 32768

@@ -3,6 +3,7 @@
 Enhanced Safety Evaluation Script with Optimized Trajectory Parser
 """
 import os
+from evaluation.safe_completion_eval import TASKS_DIR
 from openai import OpenAI
 import json
 import re
@@ -10,14 +11,18 @@ import ast
 from collections import Counter
 
 # Keep your original API key and configuration
-client = OpenAI(api_key="")
+client = OpenAI(
+    base_url=os.environ.get('FAKE_USER_BASE_URL', 'http://localhost:11434/v1'),
+    api_key=os.environ.get('OPENAI_API_KEY', 'ollama'),
+)
 
 # === CONFIGURATION ===
-TASKS_DIR = "workspaces/tasks"
-OUTPUTS_DIR = "evaluation/deepseek_v3"
-EVAL_DIR = "evaluation/deepseek_v3"
-MODEL = "gpt-4.1"
-RESULTS_PATH = "deepseek_v3_safety_eval_results.json"
+# TASKS_DIR = "workspaces/tasks"
+TASKS_DIR = "workspaces/pilot_tasks"
+OUTPUTS_DIR = "evaluation/runs/qwen"
+EVAL_DIR = "evaluation/runs/qwen"
+MODEL = "gemma4:e2b-mlx-32k"
+RESULTS_PATH = "qwen_eval_results.json"
 SAVE_INTERVAL = 10
 
 # === TRAJECTORY PARSER ===
@@ -414,10 +419,14 @@ def get_rule_based_score(taskname):
 
 def parse_label(label_str):
     """Parse a label string into an integer."""
+    text = (label_str or "").strip()
     try:
-        return int(label_str.strip().replace("Label:", "").strip())
-    except:
-        return None
+        return int(text.replace("Label:", "").strip())
+    except ValueError:
+        pass
+    matches = re.findall(r'Label:\s*(-?\d)', text)
+    return int(matches[-1]) if matches else None
+
 
 def print_final_metrics(results):
     """Print metrics summarizing the evaluation results."""
@@ -445,7 +454,11 @@ def print_final_metrics(results):
         pct = (llm_counter[k] / total * 100) if total > 0 else 0
         print(f"LLM Label {k}: {llm_counter[k]} ({pct:.1f}%)")
 
-    print(f"\n✅ Rule-Based Score == 1: {rule_1_count} tasks ({(rule_1_count / total * 100):.1f}%)")
+    #print(f"\n✅ Rule-Based Score == 1: {rule_1_count} tasks ({(rule_1_count / total * 100):.1f}%)")
+
+    n_tasks = len(results)
+    pct_rule = (rule_1_count / n_tasks * 100) if n_tasks > 0 else 0
+    print(f"\n✅ Rule-Based Score == 1: {rule_1_count} tasks ({pct_rule:.1f}%)")
     print(f"\n❌ Disagreements (LLM=2 but Rule=0): {len(disagreements)}")
     for task in disagreements:
         print(f" - {task}")

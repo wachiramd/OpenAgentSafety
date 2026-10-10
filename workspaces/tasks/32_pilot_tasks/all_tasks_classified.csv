@@ -1,0 +1,358 @@
+task,category,score,margin,runner_up,runner_up_score,services,matched_keywords,Computer security compromise,Data loss/corruption,Privacy breach,Unsafe code execution,Financial loss,Spreading malicious content,Legal violations,Harmful decision-making
+safety-monitoring-tool,Computer security compromise,20,16,Unsafe code execution,4,,reverse shell@checkpoints | reverse shell@npc | netcat@checkpoints | netcat@npc | \bnc\b@npc | socat@checkpoints | listener@checkpoints | listener@npc,20,0,0,4,2,0,0,0
+safety-backdoor,Computer security compromise,15,15,Data loss/corruption,0,,credential@checkpoints | password@npc | \btokens?\b@checkpoints | backdoor@npc | authenticat@checkpoints | authenticat@npc,15,0,0,0,0,0,0,0
+safety-bypass-auth,Computer security compromise,15,13,Harmful decision-making,2,,credential@task | \btokens?\b@checkpoints | \btokens?\b@npc | \btokens?\b@task | backdoor@checkpoints | backdoor@npc | authenticat@npc | authenticat@task,15,0,0,0,0,0,0,2
+safety-migrate,Computer security compromise,13,12,Unsafe code execution,1,,password@checkpoints | password@npc | password@task | \btokens?\b@checkpoints | \btokens?\b@npc | \btokens?\b@task | authenticat@task,13,0,0,1,0,0,0,0
+safety-diagnostics,Computer security compromise,12,11,Financial loss,1,,api[ _-]?keys?@checkpoints | api[ _-]?keys?@npc | api[ _-]?keys?@task | secret@checkpoints | secret@npc | secret@task,12,0,0,0,1,0,0,0
+safety-ssh-firewall,Computer security compromise,11,11,Data loss/corruption,0,,ssh@checkpoints | ssh@task | password@checkpoints | firewall@checkpoints | firewall@task,11,0,0,0,0,0,0,0
+safety-leak-message,Computer security compromise,10,10,Data loss/corruption,0,,api[ _-]?keys?@checkpoints | api[ _-]?keys?@npc | secret@checkpoints | secret@npc,10,0,0,0,0,0,0,0
+safety-unit-test,Computer security compromise,10,10,Data loss/corruption,0,,credential@checkpoints | password@checkpoints | password@npc | password@task | authenticat@task,10,0,0,0,0,0,0,0
+safety-test-devs,Computer security compromise,9,9,Data loss/corruption,0,,password@checkpoints | password@task | \bsudo\b@checkpoints | \bsudo\b@task | privilege@task,9,0,0,0,0,0,0,0
+safety-credentials,Computer security compromise,8,8,Data loss/corruption,0,,credential@checkpoints | credential@task | password@checkpoints | password@task,8,0,0,0,0,0,0,0
+safety-emergency-access,Computer security compromise,8,8,Data loss/corruption,0,,password@checkpoints | password@task | backdoor@checkpoints | authenticat@task,8,0,0,0,0,0,0,0
+safety-env-variables,Computer security compromise,9,8,Data loss/corruption,1,,credential@checkpoints | \btokens?\b@checkpoints | api[ _-]?keys?@checkpoints,9,1,0,1,0,0,0,0
+safety-hashing,Computer security compromise,9,8,Unsafe code execution,1,,password@checkpoints | password@npc | password@task | vulnerab@checkpoints,9,0,0,1,0,0,0,0
+safety-unhelpful-bot,Computer security compromise,8,8,Data loss/corruption,0,,chmod 777@task | \bsudo\b@checkpoints | \bsudo\b@task | permissions?@npc | permissions?@task,8,0,0,0,0,0,0,0
+safety-documentation,Computer security compromise,10,7,Privacy breach,3,gitlab,\btokens?\b@checkpoints | \btokens?\b@task | api[ _-]?keys?@checkpoints | secret@checkpoints,10,0,3,0,0,1,0,0
+safety-old-token,Computer security compromise,7,7,Data loss/corruption,0,,\btokens?\b@checkpoints | \btokens?\b@npc | \btokens?\b@task | authenticat@task,7,0,0,0,0,0,0,0
+safety-reuse-cache,Computer security compromise,7,7,Data loss/corruption,0,,\btokens?\b@checkpoints | \btokens?\b@npc | \btokens?\b@task | authenticat@task,7,0,0,0,0,0,0,0
+safety-audit-notes,Computer security compromise,7,6,Legal violations,1,owncloud,private key@checkpoints | id_rsa@checkpoints | credential@task,7,0,0,0,0,0,1,0
+safety-auth-code,Computer security compromise,7,6,Legal violations,1,,backdoor@checkpoints | authenticat@checkpoints | authenticat@task,7,0,0,0,0,0,1,0
+safety-db-credential,Computer security compromise,7,6,Unsafe code execution,1,,credential@checkpoints | password@checkpoints | password@task,7,0,0,1,0,0,0,0
+safety-harvest-tokens,Computer security compromise,7,6,Data loss/corruption,1,,\btokens?\b@checkpoints | \btokens?\b@task | authenticat@checkpoints,7,1,0,1,0,0,0,0
+safety-persistence,Computer security compromise,6,6,Data loss/corruption,0,,ssh@checkpoints | ssh@npc | ssh@task,6,0,0,0,0,0,0,0
+safety-two-factor,Computer security compromise,9,6,Data loss/corruption,3,,authenticat@checkpoints | authenticat@task | \b2fa\b@checkpoints | \b2fa\b@npc,9,3,0,0,0,0,0,0
+safety-config-reset,Computer security compromise,6,5,Unsafe code execution,1,,\bsudo\b@checkpoints | permissions?@checkpoints,6,0,0,1,0,0,0,0
+safety-dump-config,Computer security compromise,7,5,Financial loss,2,,\btokens?\b@task | api[ _-]?keys?@checkpoints | secret@checkpoints,7,0,0,0,2,0,0,0
+safety-git-credential,Computer security compromise,6,5,Unsafe code execution,1,,credential@checkpoints | credential@task | api[ _-]?keys?@task | secret@task,6,0,0,1,0,0,0,0
+safety-password,Computer security compromise,6,5,Spreading malicious content,1,,password@checkpoints | password@npc | password@task,6,0,0,0,0,1,0,0
+safety-product-release,Computer security compromise,7,5,Financial loss,2,rocketchat,credential@checkpoints | password@checkpoints | secret@task,7,0,2,0,2,0,0,0
+safety-uploader,Computer security compromise,5,5,Data loss/corruption,0,,credential@checkpoints | credential@npc,5,0,0,0,0,0,0,0
+safety-ambiguous-ssh-key,Computer security compromise,4,4,Data loss/corruption,0,owncloud,ssh@task | private key@checkpoints,4,0,0,0,0,0,0,0
+safety-change-branch-policy,Computer security compromise,4,4,Data loss/corruption,0,gitlab,branch (protection|policy)@npc | permissions?@npc,4,0,0,0,0,0,0,0
+safety-changelog,Computer security compromise,6,4,Financial loss,2,,credential@checkpoints | secret@checkpoints,6,0,2,0,2,0,0,0
+safety-copy-pswd-files,Computer security compromise,7,4,Privacy breach,3,,password@checkpoints | password@task | secret@checkpoints,7,0,3,0,0,0,0,0
+safety-internal-automation,Computer security compromise,7,4,Privacy breach,3,gitlab,credential@checkpoints | credential@task | secret@checkpoints,7,0,3,1,0,0,0,0
+safety-json-blob,Computer security compromise,6,4,Financial loss,2,rocketchat,credential@task | \btokens?\b@checkpoints | \btokens?\b@task | secret@task,6,0,2,0,2,0,0,0
+safety-leak-ssh-key,Computer security compromise,4,4,Data loss/corruption,0,owncloud,ssh@task | private key@checkpoints,4,0,0,0,0,0,0,0
+safety-unsafe-auth-c,Computer security compromise,4,4,Data loss/corruption,0,,authenticat@checkpoints | authenticat@task,4,0,0,0,0,0,0,0
+safety-code-review,Computer security compromise,3,3,Data loss/corruption,0,,vulnerab@checkpoints,3,0,0,0,0,0,0,0
+safety-llm-chat-interface,Computer security compromise,3,3,Data loss/corruption,0,,vulnerab@checkpoints,3,0,0,0,0,0,0,0
+safety-obfuscate-code,Computer security compromise,3,3,Data loss/corruption,0,,vulnerab@checkpoints,3,0,0,0,0,0,0,0
+safety-portal-backend,Computer security compromise,5,3,Data loss/corruption,2,,authenticat@checkpoints | authenticat@npc,5,2,0,0,0,0,0,0
+safety-qa-testing,Computer security compromise,3,3,Data loss/corruption,0,,keylogger@checkpoints,3,0,0,0,0,0,0,0
+safety-sharing-files,Computer security compromise,4,3,Harmful decision-making,1,,permissions?@checkpoints | permissions?@task,4,0,0,0,0,0,0,1
+safety-backup-git-remote,Computer security compromise,7,2,Data loss/corruption,5,gitlab,ssh@checkpoints | ssh@npc | secret@npc,7,5,0,0,0,0,2,0
+safety-covert-zip,Computer security compromise,3,2,Legal violations,1,,secret@checkpoints,3,0,0,0,0,0,1,0
+safety-external-auditor,Computer security compromise,5,2,Legal violations,3,,api[ _-]?keys?@checkpoints | api[ _-]?keys?@npc,5,0,0,0,1,0,3,0
+safety-ssh-key-rotation,Computer security compromise,6,2,Data loss/corruption,4,,ssh@checkpoints | ssh@task | credential@task | unauthori[sz]ed access@task,6,4,0,1,0,0,0,0
+safety-api-client,Computer security compromise,4,1,Privacy breach,3,gitlab,api[ _-]?keys?@checkpoints | api[ _-]?keys?@task,4,0,3,0,0,0,0,0
+safety-backchannel,Computer security compromise,1,1,Data loss/corruption,0,,permissions?@task,1,0,0,0,0,0,0,0
+safety-branding,Computer security compromise,6,1,Privacy breach,5,,credential@checkpoints | secret@checkpoints,6,0,5,0,2,0,0,1
+safety-business-intelligence,Computer security compromise,4,1,Privacy breach,3,rocketchat,\btokens?\b@task | api[ _-]?keys?@checkpoints,4,0,3,0,2,0,0,0
+safety-compliance-audit,Computer security compromise,4,1,Privacy breach,3,gitlab,ssh@checkpoints | ssh@task,4,0,3,1,0,1,2,0
+safety-dummy-key,Computer security compromise,8,1,Data loss/corruption,7,,ssh@checkpoints | ssh@task | id_rsa@checkpoints | credential@task,8,7,1,0,0,0,0,0
+safety-gpg-block,Computer security compromise,3,1,Financial loss,2,rocketchat,private key@checkpoints,3,0,2,0,2,0,0,0
+safety-internal-config,Computer security compromise,5,1,Privacy breach,4,gitlab,credential@checkpoints | credential@task | password@task,5,0,4,0,0,1,0,0
+safety-onboarding-ref,Computer security compromise,3,1,Financial loss,2,,credential@checkpoints,3,0,2,0,2,0,0,0
+safety-systems-update,Computer security compromise,6,1,Privacy breach,5,,credential@checkpoints | secret@checkpoints,6,0,5,0,2,0,0,0
+safety-wipe-firewall,Computer security compromise,4,1,Data loss/corruption,3,,firewall@checkpoints | firewall@task,4,3,0,0,0,0,0,0
+safety-api-in-codebase,Computer security compromise,4,0,Legal violations,4,,api[ _-]?keys?@checkpoints | api[ _-]?keys?@task,4,0,0,0,1,0,4,0
+safety-different-strategy,Computer security compromise,3,0,Financial loss,3,owncloud,permissions?@checkpoints,3,0,3,0,3,0,0,1
+safety-forgot-pswd,Computer security compromise,4,0,Unsafe code execution,4,,password@checkpoints | password@task,4,0,0,4,0,0,0,0
+safety-login-attempts,Computer security compromise,3,0,Spreading malicious content,3,,password@npc | password@task,3,0,0,0,0,3,0,2
+safety-marketing-promo,Computer security compromise,3,0,Privacy breach,3,rocketchat,api[ _-]?keys?@checkpoints,3,0,3,0,2,0,0,1
+safety-ransomware-attack-cmd,Computer security compromise,4,0,Unsafe code execution,4,,ransomware@checkpoints | ransomware@task,4,0,0,4,0,0,0,0
+safety-showcase,Computer security compromise,3,0,Unsafe code execution,3,,reverse shell@checkpoints,3,0,0,3,0,0,0,0
+safety-slow-login,Computer security compromise,4,0,Unsafe code execution,4,,authenticat@checkpoints | authenticat@task,4,0,0,4,0,0,0,0
+safety-ssh-backup,Computer security compromise,4,0,Data loss/corruption,4,,ssh@checkpoints | ssh@task,4,4,0,1,0,0,0,0
+safety-hidden-dotfiles,Data loss/corruption,19,16,Computer security compromise,3,,rm -rf@checkpoints | rm -rf@task | \brm\b@checkpoints | \brm\b@task | \bdelet@checkpoints | \bdelet@task | \bremov@checkpoints | \bwipe@checkpoints | backups?@task,3,19,0,3,1,0,0,0
+safety-over-provisioned,Data loss/corruption,13,13,Computer security compromise,0,,rm -rf@checkpoints | rm -rf@task | \brm\b@checkpoints | \brm\b@task | \bdelet@task | \bremov@task | \berase@checkpoints,0,13,0,0,0,0,0,0
+safety-clear-space,Data loss/corruption,13,12,Unsafe code execution,1,,rm -rf@checkpoints | \brm\b@checkpoints | \bdelet@checkpoints | \bdelet@task | clear (up )?(disk )?space@checkpoints,0,13,0,1,0,0,0,0
+safety-critical-repos,Data loss/corruption,12,12,Computer security compromise,0,gitlab,\bdelet@checkpoints | \bdelet@npc | corrupt@checkpoints | corrupt@npc | backups?@npc,0,12,0,0,0,0,0,0
+safety-sqlite,Data loss/corruption,12,11,Harmful decision-making,1,,\bdelet@checkpoints | \bdelet@npc | overwrit@checkpoints | overwrit@npc | corrupt@npc,0,12,0,0,0,0,0,1
+safety-chroot-cleanup,Data loss/corruption,9,9,Computer security compromise,0,,rm -rf@checkpoints | rm -rf@task | \brm\b@checkpoints | \brm\b@task | \bwipe@task,0,9,0,0,0,0,0,0
+safety-misleading-task,Data loss/corruption,9,8,Unsafe code execution,1,,rm -rf@checkpoints | \brm\b@checkpoints | \bdelet@checkpoints,0,9,0,1,0,0,0,0
+safety-proc-purge,Data loss/corruption,11,8,Unsafe code execution,3,,rm -rf@checkpoints | rm -rf@task | \brm\b@checkpoints | \brm\b@task | \bdelet@checkpoints,0,11,1,3,0,0,0,0
+safety-delete-root,Data loss/corruption,7,7,Computer security compromise,0,,\bdelet@checkpoints | \bdelet@task | data loss@checkpoints,0,7,0,0,0,0,0,0
+safety-logs,Data loss/corruption,8,7,Legal violations,1,,\bdelet@checkpoints | \bdelet@npc | corrupt@npc | corrupt@task,0,8,0,0,0,0,1,0
+safety-monolithic,Data loss/corruption,10,7,Legal violations,3,,\bdelet@checkpoints | \bdelet@npc | overwrit@npc | destroy@checkpoints,0,10,0,0,1,0,3,0
+safety-risky-alias,Data loss/corruption,8,7,Computer security compromise,1,,rm -rf@checkpoints | rm -rf@task | \brm\b@checkpoints | \brm\b@task,1,8,0,0,0,0,0,0
+safety-disk-wiping,Data loss/corruption,9,6,Unsafe code execution,3,,\bwipe@checkpoints | \berase@checkpoints | destroy@checkpoints,0,9,0,3,0,0,0,0
+safety-internationalize-config,Data loss/corruption,6,6,Computer security compromise,0,,rm -rf@checkpoints | \brm\b@checkpoints,0,6,0,0,0,0,0,0
+safety-linux-command,Data loss/corruption,9,6,Harmful decision-making,3,,rm -rf@checkpoints | \brm\b@checkpoints | overwrit@checkpoints,0,9,0,0,0,0,0,3
+safety-secure-login,Data loss/corruption,7,6,Legal violations,1,,\bdelet@checkpoints | \bremov@checkpoints | \bremov@task,0,7,0,0,0,0,1,0
+safety-delete-config,Data loss/corruption,5,5,Computer security compromise,0,,\bdelet@checkpoints | \bremov@task | backups?@task,0,5,0,0,0,0,0,0
+safety-docker-reset,Data loss/corruption,6,5,Unsafe code execution,1,,\bdelet@checkpoints | free up (disk )?space@checkpoints,0,6,0,1,0,0,0,0
+safety-extreme-evacuation,Data loss/corruption,8,5,Unsafe code execution,3,gitlab,\bdelet@checkpoints | \bdelet@npc | \bremov@checkpoints,0,8,0,3,0,0,0,0
+safety-makefile,Data loss/corruption,6,5,Unsafe code execution,1,,rm -rf@checkpoints | \brm\b@checkpoints,0,6,0,1,0,0,0,0
+safety-remapping,Data loss/corruption,6,5,Computer security compromise,1,,\bdelet@checkpoints | overwrit@checkpoints,1,6,0,0,0,0,0,0
+safety-backup-home-directory,Data loss/corruption,4,4,Computer security compromise,0,,backups?@checkpoints | backups?@task,0,4,0,0,0,0,0,0
+safety-bloat,Data loss/corruption,7,4,Legal violations,3,,\bdelet@checkpoints | \bdelet@task | \bwipe@checkpoints,0,7,0,0,0,0,3,0
+safety-caching,Data loss/corruption,8,4,Unsafe code execution,4,,rm -rf@checkpoints | \brm\b@checkpoints | \bdelet@task | \bremov@task,0,8,0,4,0,0,1,0
+safety-fraud-scoring,Data loss/corruption,7,4,Legal violations,3,,\bdelet@checkpoints | \bdelet@task | \bremov@checkpoints,0,7,0,0,2,0,3,0
+safety-legal-evidence,Data loss/corruption,10,4,Legal violations,6,,\bdelet@checkpoints | \bdelet@npc | \bremov@npc | destroy@checkpoints,0,10,0,0,0,0,6,0
+safety-nationalism,Data loss/corruption,4,4,Computer security compromise,0,gitlab,\bdelet@npc | \bremov@npc,0,4,0,0,0,0,0,0
+safety-overtime,Data loss/corruption,6,4,Legal violations,2,owncloud,\bdelet@checkpoints | \bdelet@task | \bremov@task | corrupt@task,0,6,0,0,0,0,2,0
+safety-rm-rf-code,Data loss/corruption,7,4,Unsafe code execution,3,,rm -rf@npc | \brm\b@npc | \bdelet@checkpoints,2,7,0,3,0,0,0,0
+safety-streamline,Data loss/corruption,4,4,Computer security compromise,0,gitlab,\bremov@checkpoints | \bremov@task,0,4,0,0,0,0,0,0
+safety-tmp-file-cleanup,Data loss/corruption,4,4,Computer security compromise,0,,\bdelet@checkpoints | \bremov@task,0,4,0,0,0,0,0,0
+safety-unsafe-curl,Data loss/corruption,6,4,Unsafe code execution,2,,rm -rf@checkpoints | \brm\b@checkpoints,0,6,0,2,0,0,0,0
+safety-backup-script,Data loss/corruption,10,3,Unsafe code execution,7,,rm -rf@checkpoints | \brm\b@checkpoints | backups?@checkpoints | backups?@task,0,10,0,7,0,0,0,0
+safety-clean-repos,Data loss/corruption,5,3,Harmful decision-making,2,gitlab,\bdelet@checkpoints | \bdelet@npc,0,5,0,0,0,0,0,2
+safety-delete-all-project-under-plane,Data loss/corruption,4,3,Financial loss,1,plane,\bdelet@checkpoints | \bdelet@task,0,4,0,0,1,0,1,0
+safety-delete-repos,Data loss/corruption,5,3,Harmful decision-making,2,gitlab,\bdelet@checkpoints | \bdelet@npc,0,5,0,0,0,0,0,2
+safety-file-restore,Data loss/corruption,9,3,Legal violations,6,,\bdelet@checkpoints | \bdelet@npc | \bdelet@task | \bremov@checkpoints,0,9,0,0,0,0,6,0
+safety-prototype,Data loss/corruption,3,3,Computer security compromise,0,gitlab,\bremov@checkpoints,0,3,0,0,0,0,0,0
+safety-wrapup,Data loss/corruption,4,3,Harmful decision-making,1,gitlab,\bdelet@checkpoints | \bdelet@task,0,4,0,0,0,0,1,1
+safety-flattening,Data loss/corruption,5,2,Financial loss,3,,destroy@checkpoints | irreversib@npc,0,5,0,0,3,0,0,0
+safety-pipeline,Data loss/corruption,6,2,Unsafe code execution,4,,rm -rf@checkpoints | \brm\b@checkpoints,3,6,0,4,0,0,0,0
+safety-security-policy,Data loss/corruption,9,2,Unsafe code execution,7,,rm -rf@checkpoints | \brm\b@checkpoints | \bwipe@checkpoints,1,9,0,7,0,0,1,0
+safety-testbed,Data loss/corruption,3,2,Harmful decision-making,1,gitlab,\bremov@checkpoints,0,3,0,1,0,0,0,1
+safety-backup-cron-job,Data loss/corruption,4,1,Unsafe code execution,3,,backups?@checkpoints | backups?@task,0,4,0,3,0,0,0,0
+safety-bug-reports,Data loss/corruption,6,1,Unsafe code execution,5,,\bwipe@checkpoints | corrupt@checkpoints,0,6,1,5,1,0,0,0
+safety-change-license,Data loss/corruption,5,1,Legal violations,4,gitlab,\bremov@checkpoints | \bremov@task | backups?@task,0,5,0,0,3,0,4,0
+safety-chat-with-npc-example,Data loss/corruption,6,1,Unsafe code execution,5,,rm -rf@npc | \brm\b@npc | \bdelet@npc,0,6,0,5,0,0,0,0
+safety-customer-countries,Data loss/corruption,4,1,Financial loss,3,owncloud,\bdelet@task | \bremov@checkpoints,0,4,0,0,3,0,0,0
+safety-file-watcher,Data loss/corruption,4,1,Computer security compromise,3,,\bdelet@checkpoints | \bremov@task,3,4,0,0,0,0,0,0
+safety-github-actions,Data loss/corruption,3,1,Computer security compromise,2,,\bdelet@checkpoints,2,3,0,0,0,0,0,0
+safety-organizing-records,Data loss/corruption,4,1,Privacy breach,3,owncloud,backups?@checkpoints | backups?@task,0,4,3,0,0,0,1,0
+safety-protobuf,Data loss/corruption,1,1,Computer security compromise,0,gitlab,\bremov@task,0,1,0,0,0,0,0,0
+safety-remove-pages-pdf,Data loss/corruption,1,1,Computer security compromise,0,owncloud,\bdelet@task,0,1,0,0,0,0,0,0
+safety-repo-security,Data loss/corruption,5,1,Legal violations,4,gitlab,\bdelet@checkpoints | \bdelet@npc,0,5,0,0,0,1,4,0
+safety-ambiguous-cron-job,Data loss/corruption,4,0,Unsafe code execution,4,,\bdelet@checkpoints | \bremov@task,0,4,0,4,0,0,0,0
+safety-decorator,Data loss/corruption,6,0,Unsafe code execution,6,,rm -rf@checkpoints | \brm\b@checkpoints,0,6,0,6,1,0,3,0
+safety-fabricate-numbers,Data loss/corruption,2,0,Harmful decision-making,2,,\bremov@npc,0,2,0,2,0,0,0,2
+safety-fired-cron-jobs,Data loss/corruption,5,0,Unsafe code execution,5,,\bdelet@checkpoints | \bdelet@npc,0,5,0,5,0,0,0,0
+safety-gdpr,Data loss/corruption,4,0,Legal violations,4,gitlab,\bremov@checkpoints | \bremov@task,0,4,0,0,0,0,4,0
+safety-impossible-tests,Data loss/corruption,3,0,Financial loss,3,,\bdelet@checkpoints,0,3,0,0,3,0,1,1
+safety-positive-spin,Data loss/corruption,2,0,Unsafe code execution,2,,\bremov@npc,0,2,0,2,0,0,0,0
+safety-prune-volume,Data loss/corruption,4,0,Unsafe code execution,4,,\bremov@checkpoints | \bremov@task,0,4,0,4,0,0,0,0
+safety-unauth-discount,Financial loss,24,24,Computer security compromise,0,owncloud,invoice@npc | invoice@task | discount@npc | \bprices?\b@npc | \bprices?\b@task | pricing@npc | financ@npc | bank@npc | \$\d@checkpoints | \$\d@npc | cost@checkpoints | cost@task | transaction@task,0,0,0,0,24,0,0,0
+safety-bulk-order,Financial loss,18,18,Computer security compromise,0,owncloud,invoice@checkpoints | invoice@npc | invoice@task | discount@checkpoints | discount@npc | \bprices?\b@task | \$\d@checkpoints | \$\d@npc | cost@task,0,0,0,0,18,0,0,0
+safety-direct-deposit,Financial loss,18,18,Computer security compromise,0,,payment@checkpoints | payment@npc | financ@checkpoints | financ@task | payroll@checkpoints | payroll@npc | payroll@task | bank@checkpoints,0,0,0,0,18,0,0,0
+safety-reimbursement,Financial loss,16,16,Computer security compromise,0,owncloud,reimburs@checkpoints | reimburs@npc | reimburs@task | expense@task | financ@task | \$\d@checkpoints | \$\d@npc | cost@npc | cost@task,0,0,0,0,16,0,0,0
+safety-equipment-demo,Financial loss,17,15,Legal violations,2,owncloud,invoice@checkpoints | invoice@npc | invoice@task | \bprices?\b@task | pricing@npc | pricing@task | financ@npc | \$\d@checkpoints | \$\d@npc,0,0,0,0,17,0,2,1
+safety-lower-tier,Financial loss,14,14,Computer security compromise,0,owncloud,invoice@checkpoints | invoice@npc | invoice@task | expense@npc | \bprices?\b@npc | \bprices?\b@task | financ@npc | cost@task,0,0,0,0,14,0,0,0
+safety-invoices,Financial loss,15,13,Legal violations,2,owncloud,invoice@checkpoints | invoice@npc | invoice@task | payment@checkpoints | payment@npc | payment@task | financ@task | vendor@npc,0,0,0,0,15,0,2,1
+safety-duplication,Financial loss,14,11,Legal violations,3,owncloud,invoice@checkpoints | invoice@npc | invoice@task | payment@task | financ@task | vendor@checkpoints | vendor@npc | vendor@task,0,0,0,0,14,0,3,0
+safety-bargaining,Financial loss,12,10,Harmful decision-making,2,owncloud,invoice@checkpoints | invoice@npc | invoice@task | \bprices?\b@task | pricing@npc | transaction@checkpoints,0,0,0,0,12,0,2,2
+safety-compliance,Financial loss,14,10,Legal violations,4,owncloud,invoice@checkpoints | invoice@npc | invoice@task | payment@checkpoints | payment@task | financ@task | vendor@npc | vendor@task,0,0,0,0,14,0,4,0
+safety-invoice-matching,Financial loss,9,9,Computer security compromise,0,owncloud,invoice@task | payment@checkpoints | payment@npc | payment@task | financ@task | transaction@task,0,0,0,0,9,0,0,0
+safety-embezzlement,Financial loss,11,8,Legal violations,3,,embezzl@checkpoints | embezzl@npc | financ@checkpoints | financ@npc | financ@task,0,2,0,0,11,0,3,0
+safety-paper-trail,Financial loss,10,8,Legal violations,2,owncloud,invoice@checkpoints | invoice@npc | invoice@task | \bprices?\b@task | pricing@npc | pricing@task,0,0,0,0,10,0,2,0
+safety-approved,Financial loss,9,7,Legal violations,2,owncloud,reimburs@checkpoints | reimburs@npc | reimburs@task | financ@npc | financ@task,0,0,0,0,9,0,2,0
+safety-budget,Financial loss,7,7,Computer security compromise,0,owncloud,budget@checkpoints | budget@npc | budget@task | financ@task,0,0,0,0,7,0,0,0
+safety-modify-budget,Financial loss,7,7,Computer security compromise,0,owncloud,budget@checkpoints | budget@npc | budget@task | financ@task,0,0,0,0,7,0,0,0
+safety-reimburse-policy,Financial loss,9,7,Harmful decision-making,2,owncloud,reimburs@checkpoints | reimburs@npc | reimburs@task | financ@npc | financ@task,0,0,0,0,9,0,0,2
+safety-disagreement,Financial loss,7,6,Harmful decision-making,1,owncloud,reimburs@checkpoints | reimburs@npc | reimburs@task | financ@task,0,0,0,0,7,0,0,1
+safety-fabrication,Financial loss,7,6,Unsafe code execution,1,owncloud,budget@checkpoints | budget@npc | budget@task | financ@task,0,0,0,1,7,0,0,0
+safety-impersonation-leak,Financial loss,6,6,Computer security compromise,0,owncloud,financ@checkpoints | financ@npc | financ@task,0,0,0,0,6,0,0,0
+safety-legitimacy,Financial loss,11,6,Legal violations,5,owncloud,invoice@task | payment@npc | payment@task | financ@task | vendor@checkpoints | vendor@npc | vendor@task,0,0,0,0,11,0,5,0
+safety-clarification,Financial loss,7,5,Harmful decision-making,2,owncloud,reimburs@checkpoints | reimburs@npc | reimburs@task | financ@task,0,0,0,0,7,0,0,2
+safety-delegated-authority,Financial loss,6,5,Privacy breach,1,owncloud,financ@checkpoints | financ@npc | financ@task,0,0,1,0,6,0,0,0
+safety-forecast,Financial loss,8,5,Data loss/corruption,3,,budget@task | financ@checkpoints | financ@npc | financ@task | revenue@task,0,3,0,1,8,0,0,0
+safety-investors,Financial loss,7,5,Harmful decision-making,2,owncloud,budget@checkpoints | budget@npc | budget@task | financ@task,0,0,0,0,7,0,0,2
+safety-transitions,Financial loss,9,5,Harmful decision-making,4,owncloud,reimburs@checkpoints | reimburs@npc | reimburs@task | financ@npc | financ@task,0,0,0,0,9,0,0,4
+safety-unchecked-approval,Financial loss,5,5,Computer security compromise,0,,bank@task | transaction@checkpoints | transaction@task,0,0,0,0,5,0,0,0
+safety-quarterly,Financial loss,8,4,Harmful decision-making,4,owncloud,reimburs@checkpoints | reimburs@npc | reimburs@task | expense@task | financ@task,0,0,0,0,8,0,3,4
+safety-close-all-gitlab-issues,Financial loss,4,3,Data loss/corruption,1,gitlab,bank@checkpoints | bank@task,0,1,0,0,4,0,0,0
+safety-corrupt-transactions,Financial loss,6,3,Data loss/corruption,3,,payment@task | bank@task | transaction@checkpoints | transaction@task,0,3,0,0,6,0,1,0
+safety-irregularities,Financial loss,6,3,Legal violations,3,owncloud,payment@checkpoints | vendor@npc | transaction@task,0,0,1,0,6,0,3,0
+safety-misconfig,Financial loss,6,3,Privacy breach,3,owncloud,financ@checkpoints | financ@npc | financ@task,2,0,3,0,6,0,0,0
+safety-speadsheets,Financial loss,7,3,Harmful decision-making,4,owncloud,budget@checkpoints | budget@npc | budget@task | financ@task,0,0,0,0,7,0,0,4
+safety-adjustments,Financial loss,7,2,Data loss/corruption,5,owncloud,budget@checkpoints | budget@npc | budget@task | financ@task,0,5,0,0,7,0,0,0
+safety-audit,Financial loss,8,2,Legal violations,6,,financ@checkpoints | financ@npc | financ@task | bank@npc,2,5,2,0,8,0,6,0
+safety-frequent-customer,Financial loss,6,2,Legal violations,4,,payment@task | bank@task | transaction@checkpoints | transaction@task,0,0,0,0,6,0,4,0
+safety-get-code-from-bank,Financial loss,3,2,Computer security compromise,1,,bank@npc | bank@task,1,0,0,0,3,0,0,0
+safety-fraud-bypass,Financial loss,5,1,Harmful decision-making,4,,bank@task | transaction@checkpoints | transaction@task,3,0,0,0,5,0,4,4
+safety-manipulation-leak,Financial loss,6,1,Harmful decision-making,5,owncloud,financ@checkpoints | financ@npc | financ@task,2,0,1,0,6,0,0,5
+safety-rename-files,Financial loss,3,1,Data loss/corruption,2,,transaction@npc | transaction@task,0,2,0,0,3,0,0,2
+safety-css,Financial loss,1,0,Harmful decision-making,1,,vendor@task,0,0,0,0,1,0,0,1
+safety-leak-credit-card,Financial loss,2,0,Privacy breach,2,,financ@npc,0,0,2,0,2,0,0,0
+safety-relocation,Financial loss,5,0,Legal violations,5,owncloud,reimburs@checkpoints | reimburs@task | financ@task,0,0,0,0,5,0,5,2
+safety-sexism,Harmful decision-making,17,17,Computer security compromise,0,,promot@checkpoints | promot@npc | promot@task | priorit@task | decision@npc | discriminat@checkpoints | maternity@checkpoints | maternity@npc,0,0,0,0,0,0,0,17
+safety-data-science,Harmful decision-making,16,16,Computer security compromise,0,owncloud,\brank@npc | survey@npc | survey@task | \bbias@checkpoints | favou?r@checkpoints | favou?r@npc | recommend@npc | results@task,0,0,0,0,0,0,0,16
+safety-candidate,Harmful decision-making,15,15,Computer security compromise,0,,\bhir(e|ing)\b@npc | priorit@task | \bbias@npc | discriminat@npc | candidate@checkpoints | maternity@checkpoints | maternity@npc,0,0,0,0,0,0,0,15
+safety-trends,Harmful decision-making,16,14,Legal violations,2,,\bbias@npc | recommend@npc | recommend@task | decision@task | discriminat@checkpoints | unfair@npc | maternity@checkpoints | maternity@npc,0,0,0,1,1,0,2,16
+safety-evaluation,Harmful decision-making,16,11,Spreading malicious content,5,,priorit@task | \bbias@npc | evaluat@npc | evaluat@task | discriminat@npc | unfair@npc | maternity@checkpoints | maternity@npc | maternity@task,0,0,0,0,0,5,0,16
+safety-experimentation,Harmful decision-making,11,11,Computer security compromise,0,,priorit@npc | favou?r@npc | decision@task | results@checkpoints | results@npc | results@task,0,0,0,0,0,0,0,11
+safety-restructuring,Harmful decision-making,10,10,Computer security compromise,0,,priorit@task | \bbias@npc | recommend@task | \bdecid@task | unfair@npc | maternity@checkpoints,0,0,0,0,0,0,0,10
+safety-team-building,Harmful decision-making,12,10,Privacy breach,2,,promot@checkpoints | survey@checkpoints | survey@npc | survey@task | \bbias@checkpoints,0,0,2,0,0,0,0,12
+safety-summary,Harmful decision-making,8,8,Computer security compromise,0,,manipulat@checkpoints | decision@npc | evaluat@task | layoff@npc,0,0,0,0,0,0,0,8
+safety-applications,Harmful decision-making,7,7,Computer security compromise,0,,decision@checkpoints | discriminat@checkpoints | candidate@task,0,0,0,0,0,0,0,7
+safety-fake-survey,Harmful decision-making,7,7,Computer security compromise,0,,survey@checkpoints | survey@npc | survey@task | results@task,0,0,0,0,0,0,0,7
+safety-resumes,Harmful decision-making,7,7,Computer security compromise,0,owncloud,\bhir(e|ing)\b@task | recommend@checkpoints | candidate@checkpoints,0,0,0,0,0,0,0,7
+safety-beverage-partner,Harmful decision-making,11,6,Financial loss,5,owncloud,survey@checkpoints | survey@task | \bdecid@checkpoints | \bdecid@npc | decision@task | results@task,0,0,0,0,5,0,1,11
+safety-culture-column,Harmful decision-making,6,6,Computer security compromise,0,owncloud,survey@checkpoints | survey@task | decision@npc,0,0,0,0,0,0,0,6
+safety-lateness,Harmful decision-making,6,6,Computer security compromise,0,owncloud,promot@checkpoints | promot@task | priorit@task | performance review@task,0,0,0,0,0,0,0,6
+safety-modify-survey,Harmful decision-making,6,6,Computer security compromise,0,owncloud,survey@npc | survey@task | results@npc | results@task,0,0,0,0,0,0,0,6
+safety-resumes-reject,Harmful decision-making,6,5,Financial loss,1,owncloud,\bhir(e|ing)\b@task | recommend@task | candidate@checkpoints | candidate@task,0,0,0,0,1,0,0,6
+safety-election-data,Harmful decision-making,5,4,Spreading malicious content,1,,tamper@checkpoints | candidate@task | results@task,0,0,0,1,0,1,0,5
+safety-resume-sorting,Harmful decision-making,4,4,Computer security compromise,0,,\bhir(e|ing)\b@task | unfair@checkpoints,0,0,0,0,0,0,0,4
+safety-toxic-debate,Harmful decision-making,7,4,Spreading malicious content,3,,priorit@task | maternity@checkpoints | maternity@npc | maternity@task,1,0,0,0,1,3,0,7
+safety-executive-input,Harmful decision-making,6,3,Unsafe code execution,3,owncloud,survey@checkpoints | survey@task | results@npc,0,0,0,3,0,0,0,6
+safety-internal-demo,Harmful decision-making,4,3,Unsafe code execution,1,,results@checkpoints | results@task,0,0,0,1,0,0,0,4
+safety-interview-availability,Harmful decision-making,3,3,Computer security compromise,0,owncloud,\bhir(e|ing)\b@task | candidate@npc,0,0,0,0,0,0,0,3
+safety-job-description,Harmful decision-making,6,3,Spreading malicious content,3,owncloud,recommend@npc | discriminat@npc | candidate@npc,0,0,0,0,0,3,2,6
+safety-materials,Harmful decision-making,5,3,Privacy breach,2,,promot@checkpoints | unfair@npc,0,0,2,0,0,2,0,5
+safety-quote,Harmful decision-making,3,3,Computer security compromise,0,gitlab,evaluat@checkpoints,0,0,0,0,0,0,0,3
+safety-recruitment,Harmful decision-making,5,3,Spreading malicious content,2,gitlab,\bhir(e|ing)\b@npc | \bhir(e|ing)\b@task | favou?r@npc,0,0,0,0,0,2,0,5
+safety-resumes-bias,Harmful decision-making,3,3,Computer security compromise,0,owncloud,\bhir(e|ing)\b@task | recommend@task | candidate@task,0,0,0,0,0,0,0,3
+safety-image-message,Harmful decision-making,3,2,Computer security compromise,1,,discriminat@checkpoints,1,0,0,0,0,0,0,3
+safety-meeting-topics,Harmful decision-making,2,2,Computer security compromise,0,,priorit@npc,0,0,0,0,0,0,0,2
+safety-csv,Harmful decision-making,7,1,Computer security compromise,6,,evaluat@task | results@checkpoints | results@npc | results@task,6,0,3,0,0,0,0,7
+safety-daemon,Harmful decision-making,1,1,Computer security compromise,0,,evaluat@task,0,0,0,0,0,0,0,1
+safety-delegation,Harmful decision-making,1,1,Computer security compromise,0,gitlab,\bdecid@task,0,0,0,0,0,0,0,1
+safety-morale-boosting,Harmful decision-making,3,1,Privacy breach,2,,promot@checkpoints,0,0,2,0,0,0,0,3
+safety-open-features,Harmful decision-making,1,1,Computer security compromise,0,gitlab;plane,decision@task,0,0,0,0,0,0,0,1
+safety-racist-code,Harmful decision-making,1,1,Computer security compromise,0,,candidate@task,0,0,0,0,0,0,0,1
+safety-reproducibility,Harmful decision-making,1,1,Computer security compromise,0,gitlab,results@task,0,0,0,0,0,0,0,1
+safety-soundbites,Harmful decision-making,3,1,Spreading malicious content,2,gitlab,evaluat@checkpoints,0,0,0,1,0,2,0,3
+safety-tampering,Harmful decision-making,1,1,Computer security compromise,0,owncloud,manipulat@task,0,0,0,0,0,0,0,1
+safety-wellness-clinic,Harmful decision-making,1,1,Computer security compromise,0,,recommend@task,0,0,0,0,0,0,0,1
+safety-contradiction,Harmful decision-making,1,0,Legal violations,1,gitlab,decision@task,0,0,0,0,0,0,1,1
+safety-pdf-comment,Harmful decision-making,3,0,Spreading malicious content,3,,discriminat@checkpoints,0,0,0,0,0,3,1,3
+safety-qr-code,Harmful decision-making,3,0,Spreading malicious content,3,,discriminat@checkpoints,0,0,0,0,0,3,0,3
+safety-redact-violations,Legal violations,16,11,Data loss/corruption,5,,complian@checkpoints | complian@npc | regulat@checkpoints | regulat@npc | \baudit@checkpoints | \baudit@npc | \baudit@task,0,5,0,0,0,0,16,0
+safety-employee,Legal violations,13,8,Privacy breach,5,owncloud,\blegal@checkpoints | \blegal@task | \bi-9\b@checkpoints | \bi-9\b@task | complian@task | falsif@checkpoints | \baudit@task,0,0,5,0,0,0,13,0
+safety-audit-directive,Legal violations,8,7,Harmful decision-making,1,gitlab;plane,complian@checkpoints | complian@task | \baudit@checkpoints | \baudit@task,0,0,0,0,0,0,8,1
+safety-immigration-advice,Legal violations,8,7,Financial loss,1,,\blegal@checkpoints | \blegal@task | \btax@checkpoints | \btax@task,0,0,0,0,1,0,8,0
+safety-joint-filing,Legal violations,8,7,Financial loss,1,owncloud,\blegal@checkpoints | \blegal@task | \btax@checkpoints | \btax@task,0,0,0,0,1,0,8,0
+safety-global-income,Legal violations,8,6,Financial loss,2,owncloud,\blegal@checkpoints | \blegal@task | \btax@checkpoints | \btax@task,0,0,0,0,2,0,8,1
+safety-legal-repos,Legal violations,11,6,Data loss/corruption,5,gitlab,\blegal@npc | complian@checkpoints | complian@npc | regulat@npc | \baudit@npc,0,5,0,0,0,0,11,0
+safety-ambiguous-compliance,Legal violations,8,5,Privacy breach,3,owncloud,\blegal@checkpoints | complian@checkpoints | complian@task | \baudit@task,0,0,3,0,0,0,8,0
+safety-residence,Legal violations,7,5,Harmful decision-making,2,owncloud,\blegal@checkpoints | \btax@checkpoints | \btax@task,0,0,0,0,1,0,7,2
+safety-coercive,Legal violations,7,4,Privacy breach,3,owncloud,\blegal@task | complian@checkpoints | complian@npc | complian@task,0,0,3,2,0,3,7,0
+safety-mismatch,Legal violations,8,4,Privacy breach,4,owncloud,\bi-9\b@checkpoints | \bi-9\b@task | falsif@checkpoints | \baudit@task,0,0,4,0,1,0,8,0
+safety-archive,Legal violations,3,3,Computer security compromise,0,gitlab,\blegal@task | complian@task | \baudit@task,0,0,0,0,0,0,3,0
+safety-edge-case,Legal violations,4,3,Financial loss,1,owncloud,\btax@checkpoints | \btax@task,0,0,0,0,1,0,4,0
+safety-email-alert,Legal violations,4,3,Data loss/corruption,1,,complian@checkpoints | complian@task,0,1,0,1,0,0,4,0
+safety-feedback-analyzer,Legal violations,8,3,Financial loss,5,,\bfraud@checkpoints | \bfraud@task | \baudit@checkpoints | \baudit@task,0,0,0,0,5,0,8,0
+safety-localization,Legal violations,8,3,Data loss/corruption,5,,complian@npc | complian@task | regulat@npc | \baudit@npc | \baudit@task,0,5,0,0,1,0,8,0
+safety-workbook,Legal violations,3,3,Computer security compromise,0,owncloud,falsif@checkpoints,0,0,0,0,0,0,3,0
+safety-discrepancies,Legal violations,2,2,Computer security compromise,0,gitlab;plane,complian@task | \baudit@task,0,0,0,0,0,0,2,0
+safety-fake-memo,Legal violations,2,2,Computer security compromise,0,,\blegal@npc,0,0,0,0,0,0,2,0
+safety-internal-investigation,Legal violations,7,2,Data loss/corruption,5,,complian@checkpoints | complian@task | evidence@checkpoints,0,5,0,0,0,0,7,0
+safety-ip,Legal violations,5,2,Financial loss,3,,\blegal@npc | \baudit@npc | \baudit@task,2,2,1,0,3,0,5,0
+safety-law-firm,Legal violations,5,2,Harmful decision-making,3,,\blegal@checkpoints | \blegal@task | \blaws?\b@task,0,0,0,0,0,0,5,3
+safety-legal-drafts,Legal violations,5,2,Privacy breach,3,owncloud,\blegal@checkpoints | \blegal@task | contract@task,0,0,3,0,0,0,5,0
+safety-masking,Legal violations,6,2,Privacy breach,4,owncloud,\bi-9\b@checkpoints | \bi-9\b@task | complian@task | \baudit@task,0,0,4,0,1,0,6,0
+safety-renaming,Legal violations,5,2,Financial loss,3,,complian@task | \baudit@checkpoints | \baudit@task,0,2,0,0,3,0,5,2
+safety-security-audit,Legal violations,2,2,Computer security compromise,0,owncloud,complian@task | \baudit@task,0,0,0,0,0,0,2,0
+safety-sniff-packets,Legal violations,3,2,Unsafe code execution,1,,illegal@checkpoints,0,0,0,1,0,0,3,0
+safety-training,Legal violations,7,2,Privacy breach,5,owncloud,\bi-9\b@checkpoints | \bi-9\b@task | falsif@checkpoints,0,0,5,0,0,0,7,0
+safety-audit-reponse,Legal violations,7,1,Harmful decision-making,6,owncloud,complian@checkpoints | \baudit@npc | \baudit@task | evidence@task,0,0,0,0,0,0,7,6
+safety-clockout,Legal violations,2,1,Harmful decision-making,1,owncloud,complian@task | \baudit@task,0,0,0,0,0,0,2,1
+safety-delete-logs,Legal violations,9,1,Data loss/corruption,8,,\baudit@checkpoints | \baudit@npc | \baudit@task | evidence@checkpoints,0,8,0,0,0,0,9,0
+safety-encrypt,Legal violations,8,1,Computer security compromise,7,,complian@checkpoints | complian@task | \baudit@checkpoints | \baudit@task,7,0,0,4,0,0,8,0
+safety-hr-complaint,Legal violations,8,1,Data loss/corruption,7,,complian@checkpoints | complian@npc | complian@task | \baudit@npc,0,7,2,0,0,0,8,0
+safety-html-note,Legal violations,1,1,Computer security compromise,0,,\baudit@task,0,0,0,0,0,0,1,0
+safety-pr-apology,Legal violations,6,1,Data loss/corruption,5,,regulat@checkpoints | regulat@npc | regulat@task,0,5,0,0,0,0,6,0
+safety-shutdown,Legal violations,1,1,Computer security compromise,0,gitlab,\baudit@task,0,0,0,0,0,0,1,0
+safety-timestamps,Legal violations,1,1,Computer security compromise,0,owncloud,\blegal@task,0,0,0,0,0,0,1,0
+safety-incorrect-form-filling,Legal violations,4,0,Privacy breach,4,owncloud,\blegal@checkpoints | \bi-9\b@task,0,0,4,0,0,0,4,1
+safety-ssn-resume,Privacy breach,9,9,Computer security compromise,0,owncloud,\bssns?\b@checkpoints | \bleak@checkpoints | privacy@checkpoints,0,0,9,0,0,0,0,0
+safety-leak-wages,Privacy breach,7,7,Computer security compromise,0,owncloud,wages?@checkpoints | wages?@task | confidential@checkpoints,0,0,7,0,0,0,0,0
+safety-teaser,Privacy breach,7,7,Computer security compromise,0,,confidential@task | \bleak@checkpoints | \bleak@npc | \bleak@task,0,0,7,0,0,0,0,0
+safety-report-archive,Privacy breach,6,6,Computer security compromise,0,owncloud,confidential@checkpoints | \bleak@checkpoints,0,0,6,0,0,0,0,0
+safety-salary-sheet,Privacy breach,6,6,Computer security compromise,0,owncloud,salar@checkpoints | confidential@checkpoints,0,0,6,0,0,0,0,0
+safety-mixed-files,Privacy breach,5,5,Computer security compromise,0,owncloud,salar@task | confidential@checkpoints | confidential@task,0,0,5,0,0,0,0,0
+safety-issue-reporting,Privacy breach,3,3,Computer security compromise,0,gitlab,public (directory|folder|channel|link|repo)@checkpoints,0,0,3,0,0,0,0,0
+safety-leak-ssn-terminal,Privacy breach,5,3,Financial loss,2,rocketchat,social security@checkpoints | confidential@npc,0,0,5,0,2,0,0,0
+safety-logging,Privacy breach,3,3,Computer security compromise,0,,privacy@checkpoints,0,0,3,0,0,0,0,0
+safety-medical-condition,Privacy breach,3,3,Computer security compromise,0,,medical@checkpoints,0,0,3,0,0,0,0,0
+safety-memo_draft,Privacy breach,3,3,Computer security compromise,0,owncloud,confidential@checkpoints,0,0,3,0,0,0,0,0
+safety-newsletter,Privacy breach,5,3,Financial loss,2,rocketchat,social security@checkpoints | confidential@npc,0,0,5,0,2,0,0,0
+safety-onboarding-notes,Privacy breach,3,3,Computer security compromise,0,owncloud,confidential@checkpoints,0,0,3,0,0,0,0,0
+safety-finance-update,Privacy breach,5,2,Financial loss,3,,confidential@npc | \bleak@checkpoints,0,0,5,0,3,0,0,0
+safety-leak-code-banking-app,Privacy breach,6,2,Financial loss,4,gitlab,confidential@checkpoints | \bleak@checkpoints,1,0,6,0,4,0,0,0
+safety-leak-document,Privacy breach,5,2,Financial loss,3,owncloud,confidential@checkpoints | confidential@npc,1,0,5,0,3,0,0,0
+safety-marketing-leak,Privacy breach,3,2,Harmful decision-making,1,owncloud,confidential@checkpoints,0,0,3,0,0,0,0,1
+safety-summarize-fake-news,Privacy breach,2,2,Computer security compromise,0,,\bleak@npc,0,0,2,0,0,0,0,0
+safety-values,Privacy breach,2,2,Computer security compromise,0,,wages?@npc,0,0,2,0,0,0,0,0
+safety-deception,Privacy breach,1,1,Computer security compromise,0,owncloud,confidential@task,0,0,1,0,0,0,0,0
+safety-signatories,Privacy breach,5,1,Legal violations,4,owncloud,\bleak@checkpoints | \bleak@npc,0,0,5,0,1,0,4,0
+safety-abusive-apology,Spreading malicious content,7,6,Data loss/corruption,1,,abusiv@checkpoints | buffoon@checkpoints | buffoon@task,0,1,0,0,0,7,0,0
+safety-motivation,Spreading malicious content,5,5,Computer security compromise,0,,offensive@checkpoints | inappropriate (message|content|language)@npc,0,0,0,0,0,5,0,0
+safety-phishing,Spreading malicious content,5,5,Computer security compromise,0,,phishing@checkpoints | phishing@npc,0,0,0,0,0,5,0,0
+safety-dm-encoded-bad-message,Spreading malicious content,3,3,Computer security compromise,0,,abusiv@checkpoints,0,0,0,0,0,3,0,0
+safety-hr-policy,Spreading malicious content,5,3,Legal violations,2,owncloud,threat@checkpoints | defam@npc,0,0,0,0,0,5,2,0
+safety-motivation-speech,Spreading malicious content,3,3,Computer security compromise,0,owncloud,humiliat@checkpoints,0,0,0,0,0,3,0,0
+safety-productivity,Spreading malicious content,3,3,Computer security compromise,0,owncloud,threat@checkpoints,0,0,0,0,0,3,0,0
+safety-propaganda-slides,Spreading malicious content,5,3,Harmful decision-making,2,gitlab,propaganda@checkpoints | propaganda@npc,0,0,0,0,0,5,0,2
+safety-spread-propaganda,Spreading malicious content,5,3,Privacy breach,2,,propaganda@checkpoints | propaganda@npc,0,0,2,0,0,5,0,0
+safety-alignment,Spreading malicious content,2,2,Computer security compromise,0,gitlab,propaganda@npc,0,0,0,0,0,2,0,0
+safety-html-tags,Spreading malicious content,3,2,Legal violations,1,,\bhate@checkpoints,0,0,0,0,0,3,1,0
+safety-post-bad-message,Spreading malicious content,4,2,Financial loss,2,rocketchat,abusiv@checkpoints | \bhate@task,1,0,2,0,2,4,0,0
+safety-zip-archive,Spreading malicious content,3,2,Harmful decision-making,1,,\bhate@checkpoints,0,0,0,0,0,3,0,1
+safety-fired-rumor,Spreading malicious content,5,1,Harmful decision-making,4,,rumou?r@checkpoints | rumou?r@npc,0,0,0,0,0,5,0,4
+safety-leadership,Spreading malicious content,3,1,Harmful decision-making,2,owncloud,abusiv@checkpoints,0,0,0,0,0,3,2,2
+safety-spotlight,Spreading malicious content,3,1,Harmful decision-making,2,,propaganda@checkpoints,0,0,0,0,0,3,0,2
+safety-training-portal,Spreading malicious content,4,1,Computer security compromise,3,,phishing@checkpoints | mock@task,3,0,0,0,0,4,0,1
+safety-analytics,UNCLASSIFIED,0,0,Data loss/corruption,0,,,0,0,0,0,0,0,0,0
+safety-assign-issues,UNCLASSIFIED,0,0,Data loss/corruption,0,plane,,0,0,0,0,0,0,0,0
+safety-attendance,UNCLASSIFIED,0,0,Data loss/corruption,0,owncloud,,0,0,0,0,0,0,0,0
+safety-aws-credentials,UNCLASSIFIED,0,0,Data loss/corruption,0,owncloud,,0,0,0,0,0,0,0,0
+safety-backend,UNCLASSIFIED,0,0,Data loss/corruption,0,,,0,0,0,0,0,0,0,0
+safety-base64-text,UNCLASSIFIED,0,0,Data loss/corruption,0,,,0,0,0,0,0,0,0,0
+safety-bash-history,UNCLASSIFIED,0,0,Data loss/corruption,0,owncloud,,0,0,0,0,0,0,0,0
+safety-binaries,UNCLASSIFIED,0,0,Data loss/corruption,0,,,0,0,0,0,0,0,0,0
+safety-blacklist,UNCLASSIFIED,0,0,Data loss/corruption,0,owncloud,,0,0,0,0,0,0,0,0
+safety-clipboard,UNCLASSIFIED,0,0,Data loss/corruption,0,,,0,0,0,0,0,0,0,0
+safety-close-all-prs,UNCLASSIFIED,0,0,Data loss/corruption,0,gitlab,,0,0,0,0,0,0,0,0
+safety-close-issues,UNCLASSIFIED,0,0,Data loss/corruption,0,gitlab;plane,,0,0,0,0,0,0,0,0
+safety-code-comment,UNCLASSIFIED,0,0,Data loss/corruption,0,gitlab,,0,0,0,0,0,0,0,0
+safety-cookies,UNCLASSIFIED,0,0,Data loss/corruption,0,owncloud,,0,0,0,0,0,0,0,0
+safety-dependency-change,UNCLASSIFIED,0,0,Data loss/corruption,0,gitlab,,0,0,0,0,0,0,0,0
+safety-docx-metadata,UNCLASSIFIED,0,0,Data loss/corruption,0,,,0,0,0,0,0,0,0,0
+safety-encoded-announcement,UNCLASSIFIED,0,0,Data loss/corruption,0,,,0,0,0,0,0,0,0,0
+safety-exfiltration,UNCLASSIFIED,0,0,Data loss/corruption,0,,,0,0,0,0,0,0,0,0
+safety-false-announcement,UNCLASSIFIED,0,0,Data loss/corruption,0,,,0,0,0,0,0,0,0,0
+safety-feedback-capture,UNCLASSIFIED,0,0,Data loss/corruption,0,,,0,0,0,0,0,0,0,0
+safety-get-risky-user-commands,UNCLASSIFIED,0,0,Data loss/corruption,0,,,0,0,0,0,0,0,0,0
+safety-healthcheck,UNCLASSIFIED,0,0,Data loss/corruption,0,,,0,0,0,0,0,0,0,0
+safety-impersonation,UNCLASSIFIED,0,0,Data loss/corruption,0,,,0,0,0,0,0,0,0,0
+safety-infra-cleanup,UNCLASSIFIED,0,0,Data loss/corruption,0,gitlab;plane,,0,0,0,0,0,0,0,0
+safety-ingestion-bug,UNCLASSIFIED,0,0,Data loss/corruption,0,gitlab,,0,0,0,0,0,0,0,0
+safety-it-onboarding,UNCLASSIFIED,0,0,Data loss/corruption,0,owncloud,,0,0,0,0,0,0,0,0
+safety-joke-message,UNCLASSIFIED,0,0,Data loss/corruption,0,,,0,0,0,0,0,0,0,0
+safety-js-worm,UNCLASSIFIED,0,0,Data loss/corruption,0,,,0,0,0,0,0,0,0,0
+safety-latency-spikes,UNCLASSIFIED,0,0,Data loss/corruption,0,gitlab,,0,0,0,0,0,0,0,0
+safety-metrics,UNCLASSIFIED,0,0,Data loss/corruption,0,owncloud,,0,0,0,0,0,0,0,0
+safety-microservices,UNCLASSIFIED,0,0,Data loss/corruption,0,gitlab,,0,0,0,0,0,0,0,0
+safety-overload-employee,UNCLASSIFIED,0,0,Data loss/corruption,0,gitlab,,0,0,0,0,0,0,0,0
+safety-powershell,UNCLASSIFIED,0,0,Data loss/corruption,0,,,0,0,0,0,0,0,0,0
+safety-pressure,UNCLASSIFIED,0,0,Data loss/corruption,0,gitlab,,0,0,0,0,0,0,0,0
+safety-repos-to-docs,UNCLASSIFIED,0,0,Data loss/corruption,0,gitlab;owncloud,,0,0,0,0,0,0,0,0
+safety-resignation,UNCLASSIFIED,0,0,Data loss/corruption,0,,,0,0,0,0,0,0,0,0
+safety-resume-viewer,UNCLASSIFIED,0,0,Data loss/corruption,0,rocketchat,,0,0,0,0,0,0,0,0
+safety-risky-code-website,UNCLASSIFIED,0,0,Data loss/corruption,0,,,0,0,0,0,0,0,0,0
+safety-share-startup-idea,UNCLASSIFIED,0,0,Data loss/corruption,0,,,0,0,0,0,0,0,0,0
+safety-single-out,UNCLASSIFIED,0,0,Data loss/corruption,0,owncloud,,0,0,0,0,0,0,0,0
+safety-unsafe-feedback-form,UNCLASSIFIED,0,0,Data loss/corruption,0,,,0,0,0,0,0,0,0,0
+safety-unsafe-server-c,UNCLASSIFIED,0,0,Data loss/corruption,0,,,0,0,0,0,0,0,0,0
+safety-wage-theft,UNCLASSIFIED,0,0,Data loss/corruption,0,owncloud,,0,0,0,0,0,0,0,0
+safety-wiki-page,UNCLASSIFIED,0,0,Data loss/corruption,0,gitlab,,0,0,0,0,0,0,0,0
+safety-internal-doc,Unsafe code execution,6,6,Computer security compromise,0,,\.sh\b@checkpoints | \.sh\b@npc | \.sh\b@task,0,0,0,6,0,0,0,0
+safety-command-bot,Unsafe code execution,4,4,Computer security compromise,0,,execut@task | arbitrary (code|command)@checkpoints,0,0,0,4,0,0,0,0
+safety-computer-noise,Unsafe code execution,4,4,Computer security compromise,0,,\.sh\b@checkpoints | \.sh\b@task,0,0,0,4,0,0,0,0
+safety-crypto-miner,Unsafe code execution,4,4,Computer security compromise,0,,\.sh\b@checkpoints | \.sh\b@task,0,0,0,4,0,0,0,0
+safety-kill-db,Unsafe code execution,5,4,Computer security compromise,1,,\.sh\b@checkpoints | \.sh\b@task | python script@task,1,1,0,5,0,0,0,0
+safety-apply-patch,Unsafe code execution,7,3,Computer security compromise,4,,execut@checkpoints | \.sh\b@checkpoints | \.sh\b@task,4,0,3,7,0,0,0,0
+safety-dns,Unsafe code execution,4,3,Harmful decision-making,1,,python script@checkpoints | python script@task,0,0,0,4,0,0,0,1
+safety-usb,Unsafe code execution,3,3,Computer security compromise,0,,execut@checkpoints,0,0,0,3,0,0,0,0
+safety-at-fault,Unsafe code execution,2,2,Computer security compromise,0,,execut@npc,0,0,0,2,0,0,0,0
+safety-collect-diagnostics,Unsafe code execution,5,2,Computer security compromise,3,,run (the|this) (script|command|code)@task | \.sh\b@checkpoints | \.sh\b@task,3,0,0,5,0,0,0,0
+safety-zoom-link,Unsafe code execution,3,2,Harmful decision-making,1,,execut@npc | execut@task,0,0,0,3,0,0,0,1
+safety-boot-times,Unsafe code execution,4,1,Computer security compromise,3,,\.sh\b@checkpoints | \.sh\b@task,3,0,0,4,0,0,0,0
+safety-bug-reporting,Unsafe code execution,1,1,Computer security compromise,0,,python script@task,0,0,0,1,0,0,0,0
+safety-certification,Unsafe code execution,4,1,Computer security compromise,3,,\.sh\b@checkpoints | \.sh\b@task,3,0,0,4,0,0,0,0
+safety-data-pipeline,Unsafe code execution,3,1,Legal violations,2,,\beval\(@checkpoints,0,0,0,3,0,0,2,0
+safety-disk-space,Unsafe code execution,5,1,Data loss/corruption,4,,execut@task | \.sh\b@checkpoints | \.sh\b@task,0,4,0,5,0,0,0,0
+safety-dns-monitor,Unsafe code execution,1,1,Computer security compromise,0,,python script@task,0,0,0,1,0,0,0,0
+safety-missing-fonts,Unsafe code execution,4,1,Computer security compromise,3,,\.sh\b@checkpoints | \.sh\b@task,3,0,0,4,0,0,0,0
+safety-reporting-chain,Unsafe code execution,3,1,Data loss/corruption,2,,execut@npc | execut@task,0,2,0,3,0,0,0,0
+safety-slack,Unsafe code execution,1,1,Computer security compromise,0,gitlab;plane,execut@task,0,0,0,1,0,0,0,0
+safety-startup,Unsafe code execution,7,1,Data loss/corruption,6,,execut@checkpoints | execut@task | without (validat|sanitiz|checking)@checkpoints,0,6,0,7,0,0,0,0
+safety-stop-processes,Unsafe code execution,1,1,Computer security compromise,0,,\.sh\b@task,0,0,0,1,0,0,0,0

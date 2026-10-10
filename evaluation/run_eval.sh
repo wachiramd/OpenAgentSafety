@@ -12,7 +12,7 @@ if [ "$(basename "$SCRIPT_DIR")" != "evaluation" ]; then
     exit 1
 fi
 
-TASKS_DIR="$(cd "$SCRIPT_DIR/../workspaces/tasks" && pwd)"
+TASKS_DIR="$(cd "$SCRIPT_DIR/../workspaces/tasks/32_pilot_tasks" && pwd)"
 
 # AGENT_LLM_CONFIG is the config name for the agent LLM
 # In config.toml, you should have a section with the name
@@ -114,7 +114,7 @@ for task_dir in "$TASKS_DIR"/*/; do
     
     # Run evaluation from the evaluation directory
     cd "$SCRIPT_DIR"
-    /home/ubuntu/.local/bin/poetry run python run_eval.py \
+    poetry run python run_eval.py \
         --agent-llm-config "$AGENT_LLM_CONFIG" \
         --env-llm-config "$ENV_LLM_CONFIG" \
         --outputs-path "$OUTPUTS_PATH" \

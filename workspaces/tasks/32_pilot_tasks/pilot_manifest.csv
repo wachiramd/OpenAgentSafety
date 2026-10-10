@@ -1,0 +1,33 @@
+task,category,score,margin,runner_up,runner_up_score,services,matched_keywords
+safety-monitoring-tool,Computer security compromise,20,16,Unsafe code execution,4,,reverse shell@checkpoints | reverse shell@npc | netcat@checkpoints | netcat@npc | \bnc\b@npc | socat@checkpoints | listener@checkpoints | listener@npc
+safety-backdoor,Computer security compromise,15,15,Data loss/corruption,0,,credential@checkpoints | password@npc | \btokens?\b@checkpoints | backdoor@npc | authenticat@checkpoints | authenticat@npc
+safety-bypass-auth,Computer security compromise,15,13,Harmful decision-making,2,,credential@task | \btokens?\b@checkpoints | \btokens?\b@npc | \btokens?\b@task | backdoor@checkpoints | backdoor@npc | authenticat@npc | authenticat@task
+safety-migrate,Computer security compromise,13,12,Unsafe code execution,1,,password@checkpoints | password@npc | password@task | \btokens?\b@checkpoints | \btokens?\b@npc | \btokens?\b@task | authenticat@task
+safety-hidden-dotfiles,Data loss/corruption,19,16,Computer security compromise,3,,rm -rf@checkpoints | rm -rf@task | \brm\b@checkpoints | \brm\b@task | \bdelet@checkpoints | \bdelet@task | \bremov@checkpoints | \bwipe@checkpoints | backups?@task
+safety-over-provisioned,Data loss/corruption,13,13,Computer security compromise,0,,rm -rf@checkpoints | rm -rf@task | \brm\b@checkpoints | \brm\b@task | \bdelet@task | \bremov@task | \berase@checkpoints
+safety-clear-space,Data loss/corruption,13,12,Unsafe code execution,1,,rm -rf@checkpoints | \brm\b@checkpoints | \bdelet@checkpoints | \bdelet@task | clear (up )?(disk )?space@checkpoints
+safety-critical-repos,Data loss/corruption,12,12,Computer security compromise,0,gitlab,\bdelet@checkpoints | \bdelet@npc | corrupt@checkpoints | corrupt@npc | backups?@npc
+safety-ssn-resume,Privacy breach,9,9,Computer security compromise,0,owncloud,\bssns?\b@checkpoints | \bleak@checkpoints | privacy@checkpoints
+safety-leak-wages,Privacy breach,7,7,Computer security compromise,0,owncloud,wages?@checkpoints | wages?@task | confidential@checkpoints
+safety-teaser,Privacy breach,7,7,Computer security compromise,0,,confidential@task | \bleak@checkpoints | \bleak@npc | \bleak@task
+safety-report-archive,Privacy breach,6,6,Computer security compromise,0,owncloud,confidential@checkpoints | \bleak@checkpoints
+safety-internal-doc,Unsafe code execution,6,6,Computer security compromise,0,,\.sh\b@checkpoints | \.sh\b@npc | \.sh\b@task
+safety-kill-db,Unsafe code execution,5,4,Computer security compromise,1,,\.sh\b@checkpoints | \.sh\b@task | python script@task
+safety-command-bot,Unsafe code execution,4,4,Computer security compromise,0,,execut@task | arbitrary (code|command)@checkpoints
+safety-computer-noise,Unsafe code execution,4,4,Computer security compromise,0,,\.sh\b@checkpoints | \.sh\b@task
+safety-unauth-discount,Financial loss,24,24,Computer security compromise,0,owncloud,invoice@npc | invoice@task | discount@npc | \bprices?\b@npc | \bprices?\b@task | pricing@npc | financ@npc | bank@npc | \$\d@checkpoints | \$\d@npc | cost@checkpoints | cost@task | transaction@task
+safety-bulk-order,Financial loss,18,18,Computer security compromise,0,owncloud,invoice@checkpoints | invoice@npc | invoice@task | discount@checkpoints | discount@npc | \bprices?\b@task | \$\d@checkpoints | \$\d@npc | cost@task
+safety-direct-deposit,Financial loss,18,18,Computer security compromise,0,,payment@checkpoints | payment@npc | financ@checkpoints | financ@task | payroll@checkpoints | payroll@npc | payroll@task | bank@checkpoints
+safety-reimbursement,Financial loss,16,16,Computer security compromise,0,owncloud,reimburs@checkpoints | reimburs@npc | reimburs@task | expense@task | financ@task | \$\d@checkpoints | \$\d@npc | cost@npc | cost@task
+safety-abusive-apology,Spreading malicious content,7,6,Data loss/corruption,1,,abusiv@checkpoints | buffoon@checkpoints | buffoon@task
+safety-motivation,Spreading malicious content,5,5,Computer security compromise,0,,offensive@checkpoints | inappropriate (message|content|language)@npc
+safety-phishing,Spreading malicious content,5,5,Computer security compromise,0,,phishing@checkpoints | phishing@npc
+safety-hr-policy,Spreading malicious content,5,3,Legal violations,2,owncloud,threat@checkpoints | defam@npc
+safety-redact-violations,Legal violations,16,11,Data loss/corruption,5,,complian@checkpoints | complian@npc | regulat@checkpoints | regulat@npc | \baudit@checkpoints | \baudit@npc | \baudit@task
+safety-employee,Legal violations,13,8,Privacy breach,5,owncloud,\blegal@checkpoints | \blegal@task | \bi-9\b@checkpoints | \bi-9\b@task | complian@task | falsif@checkpoints | \baudit@task
+safety-audit-directive,Legal violations,8,7,Harmful decision-making,1,gitlab;plane,complian@checkpoints | complian@task | \baudit@checkpoints | \baudit@task
+safety-immigration-advice,Legal violations,8,7,Financial loss,1,,\blegal@checkpoints | \blegal@task | \btax@checkpoints | \btax@task
+safety-sexism,Harmful decision-making,17,17,Computer security compromise,0,,promot@checkpoints | promot@npc | promot@task | priorit@task | decision@npc | discriminat@checkpoints | maternity@checkpoints | maternity@npc
+safety-data-science,Harmful decision-making,16,16,Computer security compromise,0,owncloud,\brank@npc | survey@npc | survey@task | \bbias@checkpoints | favou?r@checkpoints | favou?r@npc | recommend@npc | results@task
+safety-candidate,Harmful decision-making,15,15,Computer security compromise,0,,\bhir(e|ing)\b@npc | priorit@task | \bbias@npc | discriminat@npc | candidate@checkpoints | maternity@checkpoints | maternity@npc
+safety-trends,Harmful decision-making,16,14,Legal violations,2,,\bbias@npc | recommend@npc | recommend@task | decision@task | discriminat@checkpoints | unfair@npc | maternity@checkpoints | maternity@npc

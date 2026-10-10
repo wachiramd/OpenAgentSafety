@@ -29,7 +29,8 @@ from browsing import pre_login
 
 # FIXME
 client = openai.OpenAI(
-    # api_key=OPENAI_KEY
+    base_url=os.environ.get('FAKE_USER_BASE_URL', 'http://localhost:11434/v1'),
+    api_key=os.environ.get('OPENAI_API_KEY', 'ollama'),
 )
 
 class FakeUser:
@@ -78,7 +79,9 @@ class FakeUser:
             return self.msg
         self.chat_history.append({'role': 'user', 'content': question.content})
         response = client.chat.completions.create(
-            model='gpt-4o-2024-05-13', messages=self.chat_history
+            model=os.environ.get('FAKE_USER_MODEL', 'qwen3.5:0.8b-mlx'),
+            messages=self.chat_history
+            # model='gpt-4o-2024-05-13', messages=self.chat_history
         )
 
         reply = response.choices[0].message.content
@@ -137,11 +140,11 @@ def get_config(
 
     config = AppConfig(
         run_as_openhands=False,
-        max_budget_per_task=4,
+        max_budget_per_task=None, #running locally. change if running on cloud 
         max_iterations=max_iters,
         save_trajectory_path=os.path.join(mount_path_on_host, f'traj_{task_short_name}.json'),
         sandbox=SandboxConfig(
-            base_container_image='',#add base image path
+            base_container_image='new-base-image:latest', #using the docker image
             enable_auto_lint=True,
             use_host_network=True,
             timeout=300,
@@ -186,7 +189,10 @@ def init_task_env(runtime: Runtime, hostname: str, env_llm_config: LLMConfig, ta
     
     # copy ./workspace to /workspace
     workspace_path = os.path.join(task_path, 'workspace/')
-    runtime.copy_to(host_src=workspace_path, sandbox_dest='/workspace/', recursive=True)
+    if os.path.isdir(workspace_path):
+        runtime.copy_to(host_src=workspace_path, sandbox_dest='/workspace/', recursive=True)
+    else:
+        logger.warning(f"workspace/ not not found at {workspace_path}, skipping copy.")
 
     # copy scenarios.json to /npc
     scenarios_path = os.path.join(task_path, 'scenarios.json')
@@ -206,6 +212,7 @@ def init_task_env(runtime: Runtime, hostname: str, env_llm_config: LLMConfig, ta
     assert obs.exit_code == 0
 
     command = (
+        f"echo '{hostname} the-agent-company.com' >> /etc/hosts && "
         f"SERVER_HOSTNAME={hostname} "
         f"LITELLM_API_KEY={env_llm_config.api_key} "
         f"LITELLM_BASE_URL={env_llm_config.base_url} "
@@ -218,6 +225,9 @@ def init_task_env(runtime: Runtime, hostname: str, env_llm_config: LLMConfig, ta
     obs = runtime.run_action(action)
     logger.info(obs, extra={'msg_type': 'OBSERVATION'})
     assert obs.exit_code == 0
+    check = runtime.run_action(CmdRunAction(
+        command = "ls -la /instruction/ && echo '--- task.md ---' && cat /instructions/task.md"))
+    logger.info(check, extra={'msg_type': 'OBSERVATION'})
 
 def run_solver(runtime: Runtime, task_name: str, config: AppConfig, dependencies: List[str],
                save_final_state: bool, state_dir: str,
@@ -265,8 +275,8 @@ def run_evaluator(runtime: Runtime, env_llm_config: LLMConfig, trajectory_path: 
         f"LITELLM_BASE_URL={env_llm_config.base_url} "
         f"LITELLM_MODEL={env_llm_config.model} "
         f"DECRYPTION_KEY='theagentcompany is all you need' "  # Hardcoded Key
-        "bash -c 'pip install --quiet setuptools && "
-        f"python /utils/eval.py --trajectory_path {trajectory_path} --result_path {result_path}'"
+        "bash -c '/usr/local/bin/python_default -m pip install --quiet setuptools && "
+        f"/usr/local/bin/python_default /utils/eval.py --trajectory_path {trajectory_path} --result_path {result_path}'"
     )
     action = CmdRunAction(command=command)
     action.set_hard_timeout(600)
