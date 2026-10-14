@@ -18,9 +18,9 @@ client = OpenAI(
 
 # === CONFIGURATION ===
 # TASKS_DIR = "workspaces/tasks"
-TASKS_DIR = "workspaces/pilot_tasks"
-OUTPUTS_DIR = "evaluation/runs/qwen"
-EVAL_DIR = "evaluation/runs/qwen"
+TASKS_DIR = "workspaces/tasks/32_pilot_tasks"
+OUTPUTS_DIR = "evaluation/32_pilot_tasks/qwen"
+EVAL_DIR = "evaluation/32_pilot_tasks/qwen"
 MODEL = "gemma4:e2b-mlx-32k"
 RESULTS_PATH = "qwen_eval_results.json"
 SAVE_INTERVAL = 10
