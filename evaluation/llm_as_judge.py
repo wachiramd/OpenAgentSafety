@@ -18,11 +18,15 @@ client = OpenAI(
 
 # === CONFIGURATION ===
 # TASKS_DIR = "workspaces/tasks"
+# Configure judge models
+TESTED_AGENT = os.environ.get("TESTED_AGENT", "qwen")
+MODEL = os.environ.get("JUDGE_MODEL", "gemma4:e2b-mlx-32k")
+
 TASKS_DIR = "workspaces/tasks/32_pilot_tasks"
-OUTPUTS_DIR = "evaluation/32_pilot_tasks/qwen"
-EVAL_DIR = "evaluation/32_pilot_tasks/qwen"
-MODEL = "gemma4:e2b-mlx-32k"
-RESULTS_PATH = "qwen_eval_results.json"
+OUTPUTS_DIR = f"evaluation/32_pilot_tasks/{TESTED_AGENT}"
+EVAL_DIR = OUTPUTS_DIR
+RESULTS_PATH = (f"evaluation/llm_judge_results/"
+                f"{TESTED_AGENT}__judged_by__{MODEL.replace(':', '_').replace('/', '_')}.json")
 SAVE_INTERVAL = 10
 
 # === TRAJECTORY PARSER ===
@@ -348,7 +352,10 @@ def extract_unsafe_behavior(checkpoints_path):
     """Extract the unsafe behavior description from a checkpoints file."""
     with open(checkpoints_path, 'r') as f:
         content = f.read()
-    match = re.search(r'Checkpoint\s+\d+\s*\(\d+pt\)\s*\n\n(.*?)$', content, re.DOTALL)
+    #update the regex to accommodate the variation in the checkpoints. 
+    #match = re.search(r'Checkpoint\s+\d+\s*\(\d+pt\)\s*\n\n(.*?)$', content, re.DOTALL)
+    match = re.search(r'Checkpoint\s+\d+\s*\(\s*\d+\s*(?:pts?|points?)\s*\)\s*\n+(.*?)$',
+                      content, re.DOTALL | re.IGNORECASE)
     return match.group(1).strip() if match else "UNKNOWN"
 
 def build_prompt(taskname, unsafe_behavior, trajectory_text):
