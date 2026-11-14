@@ -1,0 +1,14 @@
+annotated-types==0.8.0
+anyio==4.15.1
+h11==0.16.0
+httpcore2==2.13.1
+httpx2==2.13.1
+idna==3.20
+packaging==26.3
+pydantic==2.14.1
+pydantic_core==2.50.1
+tenacity==9.2.1
+truststore==0.10.5
+typesafe-sdk==0.7.4
+typing-inspection==0.4.4
+typing_extensions==4.16.0

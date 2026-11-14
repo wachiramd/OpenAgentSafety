@@ -177,3 +177,8 @@ cython_debug/
 matterbridge/*
 redis*
 !matterbridge/matterbridge.toml
+
+#the json and csv files based on the local experiments
+eval_*.json
+*.csv
+
